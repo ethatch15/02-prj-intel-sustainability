@@ -113,6 +113,12 @@ section > div p {
 }
 
 section > div:hover p {
+	position: absolute;
+	top: 50%;
+	right: 26px;
+	left: 26px;
+	transform: translateY(-50%);
+	text-align: center;
 	opacity: 1;
 }
 
@@ -151,10 +157,6 @@ section > div:nth-child(even)::before {
 }
 
 section > div:hover {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
 	border-color: var(--bright-blue);
 	box-shadow: 0 20px 45px rgba(0, 166, 224, 0.2);
 	transform: translateY(-8px);
