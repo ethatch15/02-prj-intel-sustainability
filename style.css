@@ -103,16 +103,12 @@ section > div {
 	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
-/* Hide each card's information until the card is hovered */
-section > div h2,
-section > div h3,
+/* Hide each card's description until the card is hovered */
 section > div p {
 	opacity: 0;
 	transition: opacity 220ms ease;
 }
 
-section > div:hover h2,
-section > div:hover h3,
 section > div:hover p {
 	opacity: 1;
 }
@@ -177,11 +173,12 @@ section > div:nth-child(3)::after,
 section > div:nth-child(4)::after {
 	content: "";
 	display: block;
-	height: 7px;
+	height: 90px;
 	margin-top: 22px;
 	border-radius: 4px;
 	background-size: cover;
 	background-position: center;
+	background-repeat: no-repeat;
 }
 
 section > div:nth-child(1)::after {
