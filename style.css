@@ -117,7 +117,8 @@ section > div p {
 	transition: opacity 220ms ease;
 }
 
-section > div:hover p {
+section > div:hover p,
+section > div:focus p {
 	position: absolute;
 	top: 62%;
 	right: 26px;
@@ -133,7 +134,8 @@ section > div h3 {
 	z-index: 2;
 }
 
-section > div:hover::after {
+section > div:hover::after,
+section > div:focus::after {
 	opacity: 1;
 	filter: grayscale(1) brightness(0.35);
 	background-color: #343a40;
@@ -165,6 +167,11 @@ section > div:hover {
 	border-color: var(--bright-blue);
 	box-shadow: 0 20px 45px rgba(0, 166, 224, 0.2);
 	transform: translateY(-8px);
+}
+
+section > div:focus {
+	outline: 3px solid var(--green);
+	outline-offset: 4px;
 }
 
 section > div:nth-child(even):hover {
