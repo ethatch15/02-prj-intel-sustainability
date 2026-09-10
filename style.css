@@ -114,7 +114,7 @@ section > div p {
 
 section > div:hover p {
 	position: absolute;
-	top: 50%;
+	top: 62%;
 	right: 26px;
 	left: 26px;
 	transform: translateY(-50%);
