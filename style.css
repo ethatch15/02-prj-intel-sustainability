@@ -125,6 +125,8 @@ section > div h3 {
 section > div:hover::after {
 	opacity: 1;
 	filter: grayscale(1) brightness(0.35);
+	background-color: #343a40;
+	background-blend-mode: multiply;
 }
 
 /* The small dot shows where each event meets the line */
