@@ -103,6 +103,20 @@ section > div {
 	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
+/* Hide each card's information until the card is hovered */
+section > div h2,
+section > div h3,
+section > div p {
+	opacity: 0;
+	transition: opacity 220ms ease;
+}
+
+section > div:hover h2,
+section > div:hover h3,
+section > div:hover p {
+	opacity: 1;
+}
+
 /* The small dot shows where each event meets the line */
 section > div::before {
 	content: "";
