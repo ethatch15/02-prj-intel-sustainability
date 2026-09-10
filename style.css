@@ -97,11 +97,11 @@ section > div {
 	padding: 60px 26px 28px;
 	border: 1px solid rgba(155, 220, 244, 0.24);
 	border-radius: 12px;
-	background: rgba(8, 39, 65, 0.94);
+	background-color: rgba(8, 39, 65, 0.94);
 	box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
 	overflow: hidden;
 	scroll-snap-align: start;
-	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+	transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
 }
 
 /* Hide each card's description until the card is hovered */
@@ -149,6 +149,7 @@ section > div:nth-child(even)::before {
 
 section > div:hover {
 	border-color: var(--bright-blue);
+	background-color: #343a40;
 	box-shadow: 0 20px 45px rgba(0, 166, 224, 0.2);
 	transform: translateY(-8px);
 }
