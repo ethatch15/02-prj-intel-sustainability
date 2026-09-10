@@ -99,18 +99,31 @@ section > div {
 	border-radius: 12px;
 	background: rgba(8, 39, 65, 0.94);
 	box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
 	scroll-snap-align: start;
 	transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
 /* Hide each card's description until the card is hovered */
 section > div p {
+	position: relative;
+	z-index: 2;
 	opacity: 0;
 	transition: opacity 220ms ease;
 }
 
 section > div:hover p {
 	opacity: 1;
+}
+
+section > div h2,
+section > div h3 {
+	position: relative;
+	z-index: 2;
+}
+
+section > div:hover::after {
+	opacity: 0;
 }
 
 /* The small dot shows where each event meets the line */
@@ -177,13 +190,17 @@ section > div:nth-child(7)::after,
 section > div:nth-child(8)::after,
 section > div:nth-child(9)::after {
 	content: "";
-	display: block;
-	height: 90px;
-	margin-top: 22px;
-	border-radius: 4px;
+	position: absolute;
+	top: 148px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 1;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	transition: opacity 220ms ease;
 }
 
 section > div:nth-child(1)::after {
@@ -272,5 +289,9 @@ body > p {
 		width: 14px;
 		height: 14px;
 		transform: none;
+	}
+
+	section > div::after {
+		top: 112px;
 	}
 }
