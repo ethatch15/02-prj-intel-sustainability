@@ -298,7 +298,7 @@ body > p {
 	section > div,
 	section > div:nth-child(even) {
 		width: 100%;
-		min-height: 0;
+		min-height: 280px;
 		padding: 22px;
 		margin: 0 0 42px;
 	}
@@ -314,7 +314,7 @@ body > p {
 	}
 
 	section > div::after {
-		top: 112px;
+		top: 108px;
 	}
 
 	section > div:hover,
