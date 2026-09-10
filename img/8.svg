@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="200" viewBox="0 0 500 200">
+  <defs><linearGradient id="bg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#07324a"/><stop offset="1" stop-color="#238e99"/></linearGradient><linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d2eac6"/><stop offset="1" stop-color="#56a895"/></linearGradient></defs>
+  <rect width="500" height="200" fill="url(#bg)"/><g stroke="#9adcc0" stroke-width="2" opacity=".7"><path d="M0 32h110l38 38h206l38-38h108M0 168h106l40-40h208l40 40h106"/><path d="M52 0v34m396 0V0m-80 200v-34m-240 34v-34"/></g>
+  <g transform="translate(176 39) rotate(3 72 60)"><rect x="-12" y="-12" width="164" height="140" rx="8" fill="#102c3a" stroke="#b2e7bf" stroke-width="3"/><rect x="8" y="8" width="124" height="100" rx="4" fill="url(#panel)"/><path d="M22 90c24-39 48-50 87-60M31 93c12-24 26-30 44-34" fill="none" stroke="#eff8d2" stroke-width="6" stroke-linecap="round"/><circle cx="104" cy="30" r="12" fill="#d9f2bd"/><path d="M104 16v28m-14-14h28" stroke="#387d67" stroke-width="3"/></g>
+  <text x="18" y="27" fill="#e0f4dc" font-family="Arial" font-size="13" font-weight="bold">INTEL 2023</text><text x="340" y="184" fill="#cbf3e0" font-family="Arial" font-size="12">RENEWABLE POWER</text>
+</svg>

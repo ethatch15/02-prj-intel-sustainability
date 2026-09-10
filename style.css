@@ -170,7 +170,12 @@ section p {
 section > div:nth-child(1)::after,
 section > div:nth-child(2)::after,
 section > div:nth-child(3)::after,
-section > div:nth-child(4)::after {
+section > div:nth-child(4)::after,
+section > div:nth-child(5)::after,
+section > div:nth-child(6)::after,
+section > div:nth-child(7)::after,
+section > div:nth-child(8)::after,
+section > div:nth-child(9)::after {
 	content: "";
 	display: block;
 	height: 90px;
@@ -195,6 +200,26 @@ section > div:nth-child(3)::after {
 
 section > div:nth-child(4)::after {
 	background-image: url("img/4.jpg");
+}
+
+section > div:nth-child(5)::after {
+	background-image: url("img/5.svg");
+}
+
+section > div:nth-child(6)::after {
+	background-image: url("img/6.svg");
+}
+
+section > div:nth-child(7)::after {
+	background-image: url("img/7.svg");
+}
+
+section > div:nth-child(8)::after {
+	background-image: url("img/8.svg");
+}
+
+section > div:nth-child(9)::after {
+	background-image: url("img/9.svg");
 }
 
 body > p {
