@@ -2,5 +2,5 @@
   <defs><linearGradient id="bg" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#142737"/><stop offset="1" stop-color="#477c78"/></linearGradient><linearGradient id="chip" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dce6c9"/><stop offset="1" stop-color="#6a9c89"/></linearGradient></defs>
   <rect width="500" height="200" fill="url(#bg)"/><g stroke="#a6d8b9" stroke-width="2" opacity=".65"><path d="M0 36h105l40 40h210l40-40h105M0 164h112l34-34h208l34 34h112"/><path d="M60 0v38m386 0V0m-76 200v-48m-252 48v-48"/></g>
   <g transform="translate(174 35)"><rect x="-13" y="-13" width="166" height="146" rx="9" fill="#102a38" stroke="#bee1bd" stroke-width="3"/><rect x="8" y="8" width="124" height="104" rx="5" fill="url(#chip)"/><path d="M25 88h90M25 69h90M25 50h90M25 31h90" stroke="#2a6868" stroke-width="5"/><text x="44" y="102" fill="#ebf5d2" font-family="Arial" font-size="19" font-weight="bold">386</text></g>
-  <text x="18" y="27" fill="#e5f3d8" font-family="Arial" font-size="13" font-weight="bold">INTEL 1985</text><text x="196" y="184" fill="#d1efdc" font-family="Arial" font-size="12">32-BIT COMPUTING</text>
+  <text x="18" y="27" fill="#e5f3d8" font-family="Arial" font-size="13" font-weight="bold">INTEL 1985</text><text x="250" y="188" text-anchor="middle" fill="#d1efdc" font-family="Arial" font-size="12">32-BIT COMPUTING</text>
 </svg>
