@@ -316,4 +316,20 @@ body > p {
 	section > div::after {
 		top: 112px;
 	}
+
+	section > div:hover,
+	section > div:nth-child(even):hover {
+		transform: none;
+	}
+
+	section > div:hover p,
+	section > div:focus p {
+		position: relative;
+		top: auto;
+		right: auto;
+		left: auto;
+		transform: none;
+		text-align: center;
+		margin-top: 28px;
+	}
 }
