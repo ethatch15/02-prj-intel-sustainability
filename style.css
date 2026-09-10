@@ -208,19 +208,19 @@ section > div:nth-child(9)::after {
 }
 
 section > div:nth-child(1)::after {
-	background-image: url("img/1.jpg");
+	background-image: url("img/1.svg");
 }
 
 section > div:nth-child(2)::after {
-	background-image: url("img/2.jpg");
+	background-image: url("img/2.svg");
 }
 
 section > div:nth-child(3)::after {
-	background-image: url("img/3.jpg");
+	background-image: url("img/3.svg");
 }
 
 section > div:nth-child(4)::after {
-	background-image: url("img/4.jpg");
+	background-image: url("img/4.svg");
 }
 
 section > div:nth-child(5)::after {
