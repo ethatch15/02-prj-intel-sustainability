@@ -120,7 +120,7 @@ section > div p {
 section > div:hover p,
 section > div:focus p {
 	position: absolute;
-	top: 62%;
+	top: calc(50% + 74px);
 	right: 26px;
 	left: 26px;
 	transform: translateY(-50%);
@@ -336,12 +336,11 @@ body > p {
 
 	section > div:hover p,
 	section > div:focus p {
-		position: relative;
-		top: auto;
-		right: auto;
-		left: auto;
-		transform: none;
+		position: absolute;
+		top: calc(50% + 54px);
+		right: 22px;
+		left: 22px;
+		transform: translateY(-50%);
 		text-align: center;
-		margin-top: 28px;
 	}
 }
