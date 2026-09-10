@@ -340,6 +340,8 @@ body > p {
 		top: 214px;
 		right: 22px;
 		left: 22px;
+		font-size: 0.85rem;
+		line-height: 1.45;
 		max-height: 180px;
 		padding: 0 4px;
 		overflow-y: auto;
