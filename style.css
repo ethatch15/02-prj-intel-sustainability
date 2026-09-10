@@ -290,7 +290,7 @@ body > p {
 		top: 35px;
 		right: auto;
 		bottom: 282px;
-		left: 8px;
+		left: 6px;
 		width: 4px;
 		height: auto;
 	}
@@ -337,7 +337,7 @@ body > p {
 	section > div:hover p,
 	section > div:focus p {
 		position: absolute;
-		top: calc(50% + 54px);
+		top: 214px;
 		right: 22px;
 		left: 22px;
 		transform: translateY(-50%);
