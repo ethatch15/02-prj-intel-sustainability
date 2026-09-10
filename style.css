@@ -85,7 +85,7 @@ section::before {
 	position: absolute;
 	top: 48px;
 	right: auto;
-	left: 40px;
+	left: 195px;
 	width: max(calc(100% - 80px), 2827px);
 	height: 4px;
 	border-radius: 4px;
@@ -287,7 +287,7 @@ body > p {
 	}
 
 	section::before {
-		top: 0;
+		top: 35px;
 		right: auto;
 		bottom: 282px;
 		left: 8px;
