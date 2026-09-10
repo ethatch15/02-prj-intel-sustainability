@@ -340,6 +340,9 @@ body > p {
 		top: 214px;
 		right: 22px;
 		left: 22px;
+		max-height: 180px;
+		padding: 0 4px;
+		overflow-y: auto;
 		transform: translateY(-50%);
 		text-align: center;
 	}
