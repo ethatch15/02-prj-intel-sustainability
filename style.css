@@ -84,9 +84,9 @@ section::before {
 	content: "";
 	position: absolute;
 	top: 48px;
-	right: 40px;
+	right: auto;
 	left: 40px;
-	width: auto;
+	width: max(calc(100% - 80px), 2827px);
 	height: 4px;
 	border-radius: 4px;
 	background: linear-gradient(var(--bright-blue), var(--green));
