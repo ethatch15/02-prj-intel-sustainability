@@ -63,7 +63,7 @@ header p {
 }
 
 /* The timeline holds all of the dated cards */
-section {
+.timeline {
 	position: relative;
 	display: flex;
 	gap: 24px;
@@ -80,7 +80,7 @@ section {
 }
 
 /* This is the line that connects every milestone */
-section::before {
+.timeline::before {
 	content: "";
 	position: absolute;
 	top: 48px;
@@ -93,7 +93,7 @@ section::before {
 }
 
 /* Cards sit in one scrollable row on larger screens */
-section > div {
+.timeline > div {
 	position: relative;
 	flex: 0 0 310px;
 	min-height: 280px;
@@ -110,15 +110,15 @@ section > div {
 }
 
 /* Hide each card's description until the card is hovered */
-section > div p {
+.timeline > div p {
 	position: relative;
 	z-index: 2;
 	opacity: 0;
 	transition: opacity 220ms ease;
 }
 
-section > div:hover p,
-section > div:focus p {
+.timeline > div:hover p,
+.timeline > div:focus p {
 	position: absolute;
 	top: calc(50% + 74px);
 	right: 26px;
@@ -128,14 +128,14 @@ section > div:focus p {
 	opacity: 1;
 }
 
-section > div h2,
-section > div h3 {
+.timeline > div h2,
+.timeline > div h3 {
 	position: relative;
 	z-index: 2;
 }
 
-section > div:hover::after,
-section > div:focus::after {
+.timeline > div:hover::after,
+.timeline > div:focus::after {
 	opacity: 1;
 	filter: grayscale(1) brightness(0.35);
 	background-color: #343a40;
@@ -143,7 +143,7 @@ section > div:focus::after {
 }
 
 /* The small dot shows where each event meets the line */
-section > div::before {
+.timeline > div::before {
 	content: "";
 	position: absolute;
 	top: 35px;
@@ -158,23 +158,23 @@ section > div::before {
 	transform: translateX(-50%);
 }
 
-section > div:nth-child(even)::before {
+.timeline > div:nth-child(even)::before {
 	background: var(--bright-blue);
 	box-shadow: 0 0 0 4px rgba(0, 166, 224, 0.2);
 }
 
-section > div:hover {
+.timeline > div:hover {
 	border-color: var(--bright-blue);
 	box-shadow: 0 20px 45px rgba(0, 166, 224, 0.2);
 	transform: translateY(-8px);
 }
 
-section > div:focus {
+.timeline > div:focus {
 	outline: 3px solid var(--green);
 	outline-offset: 4px;
 }
 
-section > div:nth-child(even):hover {
+.timeline > div:nth-child(even):hover {
 	transform: translateY(-8px);
 }
 
@@ -185,7 +185,7 @@ h2 {
 	line-height: 1;
 }
 
-section > div:nth-child(even) h2 {
+.timeline > div:nth-child(even) h2 {
 	color: var(--bright-blue);
 }
 
@@ -194,22 +194,22 @@ h3 {
 	font-size: 1.35rem;
 }
 
-section p {
+.timeline p {
 	margin: 0;
 	color: var(--soft-white);
 	line-height: 1.65;
 }
 
 /* Add a different photo accent to the first four milestones */
-section > div:nth-child(1)::after,
-section > div:nth-child(2)::after,
-section > div:nth-child(3)::after,
-section > div:nth-child(4)::after,
-section > div:nth-child(5)::after,
-section > div:nth-child(6)::after,
-section > div:nth-child(7)::after,
-section > div:nth-child(8)::after,
-section > div:nth-child(9)::after {
+.timeline > div:nth-child(1)::after,
+.timeline > div:nth-child(2)::after,
+.timeline > div:nth-child(3)::after,
+.timeline > div:nth-child(4)::after,
+.timeline > div:nth-child(5)::after,
+.timeline > div:nth-child(6)::after,
+.timeline > div:nth-child(7)::after,
+.timeline > div:nth-child(8)::after,
+.timeline > div:nth-child(9)::after {
 	content: "";
 	position: absolute;
 	top: 148px;
@@ -225,39 +225,39 @@ section > div:nth-child(9)::after {
 	transition: opacity 220ms ease, filter 220ms ease;
 }
 
-section > div:nth-child(1)::after {
+.timeline > div:nth-child(1)::after {
 	background-image: url("img/1.svg");
 }
 
-section > div:nth-child(2)::after {
+.timeline > div:nth-child(2)::after {
 	background-image: url("img/2.svg");
 }
 
-section > div:nth-child(3)::after {
+.timeline > div:nth-child(3)::after {
 	background-image: url("img/3.svg");
 }
 
-section > div:nth-child(4)::after {
+.timeline > div:nth-child(4)::after {
 	background-image: url("img/4.svg");
 }
 
-section > div:nth-child(5)::after {
+.timeline > div:nth-child(5)::after {
 	background-image: url("img/5.svg");
 }
 
-section > div:nth-child(6)::after {
+.timeline > div:nth-child(6)::after {
 	background-image: url("img/6.svg");
 }
 
-section > div:nth-child(7)::after {
+.timeline > div:nth-child(7)::after {
 	background-image: url("img/7.svg");
 }
 
-section > div:nth-child(8)::after {
+.timeline > div:nth-child(8)::after {
 	background-image: url("img/8.svg");
 }
 
-section > div:nth-child(9)::after {
+.timeline > div:nth-child(9)::after {
 	background-image: url("img/9.svg");
 }
 
@@ -277,7 +277,7 @@ body > p {
 		padding: 55px 22px 95px;
 	}
 
-	section {
+	.timeline {
 		display: block;
 		width: 88%;
 		margin-top: -35px;
@@ -286,7 +286,7 @@ body > p {
 		scroll-snap-type: none;
 	}
 
-	section::before {
+	.timeline::before {
 		top: 35px;
 		right: auto;
 		bottom: 282px;
@@ -295,8 +295,8 @@ body > p {
 		height: auto;
 	}
 
-	section > div,
-	section > div:nth-child(even) {
+	.timeline > div,
+	.timeline > div:nth-child(even) {
 		width: 100%;
 		height: 320px;
 		min-height: 320px;
@@ -304,8 +304,8 @@ body > p {
 		margin: 0 0 42px;
 	}
 
-	section > div::before,
-	section > div:nth-child(even)::before {
+	.timeline > div::before,
+	.timeline > div:nth-child(even)::before {
 		top: 28px;
 		right: auto;
 		left: -29px;
@@ -314,11 +314,11 @@ body > p {
 		transform: none;
 	}
 
-	section > div::after {
+	.timeline > div::after {
 		top: 108px;
 	}
 
-	section > div::before {
+	.timeline > div::before {
 		background: var(--green);
 		box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
 	}
@@ -329,13 +329,13 @@ body > p {
 		line-height: 1.5;
 	}
 
-	section > div:hover,
-	section > div:nth-child(even):hover {
+	.timeline > div:hover,
+	.timeline > div:nth-child(even):hover {
 		transform: none;
 	}
 
-	section > div:hover p,
-	section > div:focus p {
+	.timeline > div:hover p,
+	.timeline > div:focus p {
 		position: absolute;
 		top: 214px;
 		right: 22px;
@@ -347,5 +347,79 @@ body > p {
 		overflow-y: auto;
 		transform: translateY(-50%);
 		text-align: center;
+	}
+}
+
+/* The three-column section sits below the timeline */
+.columns {
+	padding: 10px 40px 90px;
+}
+
+.columns > div {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	max-width: 1200px;
+	margin-inline: auto;
+}
+
+.columns > div > div {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 26px;
+	border: 1px solid rgba(155, 220, 244, 0.24);
+	border-radius: 12px;
+	background-color: rgba(8, 39, 65, 0.94);
+	box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+.columns h2 {
+	margin: 0 0 14px;
+	color: var(--bright-blue);
+	font-size: 1.6rem;
+	line-height: 1.2;
+}
+
+.columns p {
+	margin: 0 0 24px;
+	color: var(--soft-white);
+	line-height: 1.65;
+}
+
+/* Push every button to the bottom so the three line up */
+.columns a {
+	margin-block-start: auto;
+	align-self: flex-start;
+	padding: 12px 26px;
+	border-radius: 999px;
+	background: var(--blue);
+	color: var(--white);
+	font-size: 0.9rem;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.columns a:hover {
+	background: var(--bright-blue);
+	transform: translateY(-2px);
+}
+
+.columns a:focus-visible {
+	outline: 3px solid var(--green);
+	outline-offset: 4px;
+}
+
+/* Stack the columns on a small screen */
+@media (max-width: 700px) {
+	.columns {
+		padding: 0 22px 60px;
+	}
+
+	.columns > div {
+		grid-template-columns: 1fr;
+		width: 88%;
+		margin-inline: auto;
 	}
 }
