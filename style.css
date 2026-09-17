@@ -12,6 +12,12 @@
 	box-sizing: border-box;
 }
 
+/* Set by the head script only when the text still has to be swapped, so the
+   page is never shown in the wrong language. Removed as soon as it is done. */
+.lang-pending body {
+	visibility: hidden;
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -20,12 +26,13 @@ body {
 	margin: 0;
 	color: var(--white);
 	background: var(--navy);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Segoe UI", Tahoma, "Geeza Pro", "Noto Sans Arabic", Arial, Helvetica, sans-serif;
 	overflow-x: hidden;
 }
 
 /* The introduction at the top of the page */
 header {
+	position: relative;
 	min-height: 430px;
 	padding: 70px 24px 110px;
 	display: flex;
@@ -36,10 +43,49 @@ header {
 		linear-gradient(145deg, #061426, #0b4167 65%, #0d6e80);
 }
 
-header > div {
+header > div:not(.lang-switch) {
 	width: 100%;
 	max-width: 760px;
 	margin: 0 auto;
+}
+
+/* Language switcher pinned to the top corner, on whichever side is the end */
+.lang-switch {
+	position: absolute;
+	top: 20px;
+	inset-inline-end: 24px;
+	display: flex;
+	gap: 8px;
+	z-index: 3;
+}
+
+.lang-switch button {
+	padding: 7px 16px;
+	border: 1px solid rgba(155, 220, 244, 0.35);
+	border-radius: 999px;
+	background: rgba(8, 39, 65, 0.6);
+	color: var(--soft-white);
+	font-family: inherit;
+	font-size: 0.85rem;
+	cursor: pointer;
+	transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
+.lang-switch button:hover {
+	border-color: var(--bright-blue);
+	color: var(--white);
+}
+
+/* aria-pressed marks the active language, so the styling follows the same state */
+.lang-switch button[aria-pressed="true"] {
+	border-color: var(--bright-blue);
+	background: var(--blue);
+	color: var(--white);
+}
+
+.lang-switch button:focus-visible {
+	outline: 3px solid var(--green);
+	outline-offset: 3px;
 }
 
 header img {
@@ -86,8 +132,8 @@ header p {
 	content: "";
 	position: absolute;
 	top: 48px;
-	right: auto;
-	left: 195px;
+	inset-inline-start: 195px;
+	inset-inline-end: auto;
 	width: max(calc(100% - 80px), 2827px);
 	height: 4px;
 	border-radius: 4px;
@@ -123,8 +169,7 @@ header p {
 .timeline > div:focus p {
 	position: absolute;
 	top: calc(50% + 74px);
-	right: 26px;
-	left: 26px;
+	inset-inline: 26px;
 	transform: translateY(-50%);
 	text-align: center;
 	opacity: 1;
@@ -149,15 +194,14 @@ header p {
 	content: "";
 	position: absolute;
 	top: 35px;
-	right: auto;
-	left: 50%;
+	inset-inline-start: calc(50% - 9px);
+	inset-inline-end: auto;
 	width: 18px;
 	height: 18px;
 	border: 4px solid var(--navy);
 	border-radius: 50%;
 	background: var(--green);
 	box-shadow: 0 0 0 4px rgba(124, 207, 53, 0.2);
-	transform: translateX(-50%);
 }
 
 .timeline > div:nth-child(even)::before {
@@ -217,9 +261,8 @@ h3 {
 	content: "";
 	position: absolute;
 	top: 148px;
-	right: 0;
+	inset-inline: 0;
 	bottom: 0;
-	left: 0;
 	z-index: 1;
 	opacity: 1;
 	filter: none;
@@ -278,23 +321,24 @@ body > p {
 @media (max-width: 700px) {
 	header {
 		min-height: 390px;
-		padding: 55px 22px 95px;
+		/* extra top padding so the logo clears the language switcher */
+		padding: 84px 22px 95px;
 	}
 
 	.timeline {
 		display: block;
 		width: 88%;
 		margin-top: -35px;
-		padding-left: 28px;
+		padding-inline-start: 28px;
 		overflow-x: visible;
 		scroll-snap-type: none;
 	}
 
 	.timeline::before {
 		top: 35px;
-		right: auto;
+		inset-inline-start: 6px;
+		inset-inline-end: auto;
 		bottom: 282px;
-		left: 6px;
 		width: 4px;
 		height: auto;
 	}
@@ -311,11 +355,10 @@ body > p {
 	.timeline > div::before,
 	.timeline > div:nth-child(even)::before {
 		top: 28px;
-		right: auto;
-		left: -29px;
+		inset-inline-start: -29px;
+		inset-inline-end: auto;
 		width: 14px;
 		height: 14px;
-		transform: none;
 	}
 
 	.timeline > div::after {
@@ -342,8 +385,7 @@ body > p {
 	.timeline > div:focus p {
 		position: absolute;
 		top: 214px;
-		right: 22px;
-		left: 22px;
+		inset-inline: 22px;
 		font-size: 0.85rem;
 		line-height: 1.45;
 		max-height: 180px;

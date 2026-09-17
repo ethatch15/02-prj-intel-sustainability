@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intel: Sustainability Through the Ages</title>
+  <title>إنتل: الاستدامة عبر العصور</title>
   <link rel="icon" type="image/svg+xml" href="img/intel-favicon.svg" />
-  <!-- Bootstrap CSS: loaded first so our own styles below can override it -->
+  <!-- Bootstrap's RTL build, loaded first so our own styles below can override it -->
   <link
+    id="bootstrap-css"
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW"
     crossorigin="anonymous"
   />
   <!-- Bootstrap Icons: provides the icon font used in the section headings -->
@@ -19,25 +20,80 @@
     integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="style.css?v=20260917-6" />
+  <link rel="stylesheet" href="style.css?v=20260917-11" />
+
+  <!-- Runs before the page paints, so the right language and direction are in
+       place from the first frame instead of flashing the other one first. -->
+  <script>
+    (function () {
+      var DIRS = { ar: "rtl", en: "ltr" };
+      var lang = null;
+
+      // A previous choice wins over the browser's own language
+      try {
+        var saved = localStorage.getItem("preferredLanguage");
+        if (saved && DIRS[saved]) lang = saved;
+      } catch (error) {
+        // storage can be blocked; fall through to detection
+      }
+
+      if (!lang) {
+        var list = navigator.languages || [navigator.language || ""];
+        for (var i = 0; i < list.length && !lang; i++) {
+          var code = String(list[i]).toLowerCase().split("-")[0];
+          if (DIRS[code]) lang = code;
+        }
+      }
+      if (!lang) lang = "ar";
+
+      var root = document.documentElement;
+      root.lang = lang;
+      root.dir = DIRS[lang];
+      window.initialLanguage = lang;
+
+      // The markup ships in Arabic. Only when another language is chosen does
+      // the text need swapping, so only then is the page held back.
+      if (lang !== "ar") {
+        root.classList.add("lang-pending");
+
+        var link = document.getElementById("bootstrap-css");
+        link.setAttribute(
+          "integrity",
+          "sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        );
+        link.setAttribute(
+          "href",
+          "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        );
+
+        // Failsafe: never leave the page hidden if the main script cannot run
+        setTimeout(function () {
+          root.classList.remove("lang-pending");
+        }, 2000);
+      }
+    })();
+  </script>
 </head>
 <body>
 
   <!-- Header / Hero Section -->
   <header>
+    <!-- Language switcher: changing the language also switches the page direction -->
+    <div class="lang-switch" role="group" aria-label="Language / اللغة">
+      <button type="button" data-lang="ar" aria-pressed="true">العربية</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
     <div>
       <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <img src="img/intel-header-logo.svg" alt="شعار إنتل" data-i18n-alt="logoAlt" />
       <!-- Main Heading -->
-      <h1>
-        Sustainability Through the Ages
+      <h1 data-i18n="heroTitle">
+        الاستدامة عبر العصور
       </h1>
 
       <!-- Subheading / Description -->
-      <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
-        and our planet.
+      <p data-i18n="heroText">
+        اكتشف رحلة إنتل عبر الزمن، وكيف ساهم التزامنا بالابتكار في تشكيل مستقبل أكثر استدامة للتكنولوجيا ولكوكبنا.
       </p>
     </div>
   </header>
@@ -48,112 +104,94 @@
     <!-- Card 1: 1968 -->
     <div tabindex="0">
       <h2>1968</h2>
-      <h3>Intel Founded</h3>
+      <h3 data-i18n="card1Title">تأسيس إنتل</h3>
       <!-- Add image -->
-      <p>
-        Robert Noyce and Gordon Moore rename the newly formed company 
-        NM Electronics to Intel Corporation, laying the foundation for 
-        decades of technological innovation.
+      <p data-i18n="card1Body">
+        غيّر روبرت نويس وجوردون مور اسم الشركة المؤسَّسة حديثًا من NM Electronics إلى شركة إنتل، واضعَين بذلك الأساس لعقود من الابتكار التقني.
       </p>
     </div>
 
     <!-- Card 2: 1971 -->
     <div tabindex="0">
       <h2>1971</h2>
-      <h3>First Microprocessor</h3>
+      <h3 data-i18n="card2Title">أول معالج دقيق</h3>
       <!-- Add image -->
-      <p>
-        Intel debuts the 4004, the world's first commercial microprocessor, 
-        igniting the microprocessor revolution and propelling the future 
-        of computing devices.
+      <p data-i18n="card2Body">
+        أطلقت إنتل المعالج 4004، أول معالج دقيق تجاري في العالم، مُشعلةً ثورة المعالجات الدقيقة ودافعةً بمستقبل أجهزة الحوسبة.
       </p>
     </div>
 
     <!-- Card 3: 1978 -->
     <div tabindex="0">
       <h2>1978</h2>
-      <h3>8086 Processor</h3>
+      <h3 data-i18n="card3Title">المعالج 8086</h3>
       <!-- Add image -->
-      <p>
-        Launch of the 8086 processor, establishing the x86 architecture 
-        that drives countless PCs and servers in the modern era.
+      <p data-i18n="card3Body">
+        إطلاق المعالج 8086، وترسيخ معمارية x86 التي تشغّل عددًا لا يُحصى من الحواسيب والخوادم في العصر الحديث.
       </p>
     </div>
 
     <!-- Card 4: 1985 -->
     <div tabindex="0">
       <h2>1985</h2>
-      <h3>386 Processor</h3>
+      <h3 data-i18n="card4Title">المعالج 386</h3>
       <!-- Add image -->
-      <p>
-        Intel introduces the 386 processor with 32-bit architecture, 
-        ushering in a new era of performance and multitasking for 
-        personal computers.
+      <p data-i18n="card4Body">
+        قدّمت إنتل المعالج 386 بمعمارية 32-بت، لتفتح عهدًا جديدًا من الأداء وتعدد المهام في الحواسيب الشخصية.
       </p>
     </div>
 
     <!-- Card 5: 2006 -->
     <div tabindex="0">
       <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
+      <h3 data-i18n="card5Title">ذروة انبعاثات الغازات الدفيئة</h3>
       <!-- Add image -->
-      <p>
-        This year marks Intel's highest annual greenhouse gas emissions 
-        for operations. Over subsequent years, Intel invests heavily in 
-        chemical abatement, renewable energy, and energy-efficient 
-        manufacturing to reverse this trend.
+      <p data-i18n="card5Body">
+        شهد هذا العام أعلى معدل سنوي لانبعاثات الغازات الدفيئة الناتجة عن عمليات إنتل. وعلى مدى السنوات التالية، استثمرت إنتل بكثافة في معالجة المواد الكيميائية والطاقة المتجددة والتصنيع الموفّر للطاقة لعكس هذا الاتجاه.
       </p>
     </div>
 
     <!-- Card 6: 2020 -->
     <div tabindex="0">
       <h2>2020</h2>
-      <h3>RISE Strategy</h3>
+      <h3 data-i18n="card6Title">استراتيجية RISE</h3>
       <!-- Add image -->
-      <p>
-        Intel launches its RISE (Responsible, Inclusive, Sustainable, 
-        Enabling) strategy and 2030 goals, aiming to drive industry-wide 
-        progress on climate action, water stewardship, and waste reduction.
+      <p data-i18n="card6Body">
+        أطلقت إنتل استراتيجية RISE (المسؤولة والشاملة والمستدامة والمُمكِّنة) وأهدافها لعام 2030، بهدف دفع التقدم على مستوى القطاع في العمل المناخي وإدارة المياه وتقليل النفايات.
       </p>
     </div>
 
     <!-- Card 7: 2022 -->
     <div tabindex="0">
       <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
+      <h3 data-i18n="card7Title">الحياد الكربوني بحلول 2040</h3>
       <!-- Add image -->
-      <p>
-        Intel announces its commitment to achieve net-zero greenhouse 
-        gas emissions (Scope 1 and 2) across its global operations 
-        by 2040, building on years of environmental initiatives.
+      <p data-i18n="card7Body">
+        أعلنت إنتل التزامها بتحقيق صافي انبعاثات صفري للغازات الدفيئة (النطاقان 1 و2) عبر عملياتها العالمية بحلول عام 2040، بناءً على سنوات من المبادرات البيئية.
       </p>
     </div>
 
     <!-- Card 8: 2023 -->
     <div tabindex="0">
       <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
+      <h3 data-i18n="card8Title">الكهرباء المتجددة</h3>
       <!-- Add image -->
-      <p>
-        The company achieves 99% renewable electricity usage worldwide, 
-        helping to drastically lower carbon emissions and driving progress 
-        toward Intel's long-term sustainability goals.
+      <p data-i18n="card8Body">
+        حققت الشركة استخدام الكهرباء المتجددة بنسبة 99% على مستوى العالم، مما ساعد على خفض الانبعاثات الكربونية بدرجة كبيرة ودفع التقدم نحو أهداف إنتل طويلة الأمد للاستدامة.
       </p>
     </div>
 
     <!-- Card 9: 2024 -->
     <div tabindex="0">
       <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
+      <h3 data-i18n="card9Title">قمة الاستدامة</h3>
       <!-- Add image -->
-      <p>
-        Intel hosts its first Sustainability Summit, uniting suppliers, 
-        government officials, and industry leaders to collaborate on 
-        next-generation sustainable semiconductor manufacturing.
+      <p data-i18n="card9Body">
+        استضافت إنتل أول قمة للاستدامة، جمعت المورّدين والمسؤولين الحكوميين وقادة القطاع للتعاون على تصنيع أشباه الموصلات المستدام من الجيل التالي.
       </p>
     </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  <p data-i18n="scrollHint">مرّر لعرض المخطط الزمني | ضع المؤشر فوق البطاقات لمعرفة المزيد!</p>
 
   <!-- 3-Column Content Section -->
   <section class="columns">
@@ -163,44 +201,36 @@
         <!-- Column 1 -->
         <div class="col-12 col-md-4">
           <div class="info-card h-100 d-flex flex-column">
-            <h2><i class="bi bi-globe-americas" aria-hidden="true"></i>RISE Strategy</h2>
-            <p>
-              Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy,
-              Intel sets ambitious 2030 goals, including driving industry-wide
-              progress on climate action, water stewardship, and waste reduction.
+            <h2><i class="bi bi-globe-americas" aria-hidden="true"></i><span data-i18n="col1Title">استراتيجية RISE</span></h2>
+            <p data-i18n="col1Body">
+              ضمن استراتيجية RISE (المسؤولة والشاملة والمستدامة والمُمكِّنة)، تضع إنتل أهدافًا طموحة لعام 2030، تشمل دفع التقدم على مستوى القطاع في العمل المناخي وإدارة المياه وتقليل النفايات.
             </p>
-            <!-- Learn More Button -->
-            <a href="#" class="mt-auto align-self-start">Learn More</a>
+            <!-- اعرف المزيد Button -->
+            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
           </div>
         </div>
 
         <!-- Column 2 -->
         <div class="col-12 col-md-4">
           <div class="info-card h-100 d-flex flex-column">
-            <h2><i class="bi bi-bullseye" aria-hidden="true"></i>Commitment</h2>
-            <p>
-              In 2022, Intel pledged to achieve net-zero greenhouse gas emissions
-              (Scope 1 and 2) by 2040. This commitment builds on decades of
-              environmental initiatives and partnerships across the semiconductor
-              industry.
+            <h2><i class="bi bi-bullseye" aria-hidden="true"></i><span data-i18n="col2Title">الالتزام</span></h2>
+            <p data-i18n="col2Body">
+              في عام 2022، تعهدت إنتل بتحقيق صافي انبعاثات صفري للغازات الدفيئة (النطاقان 1 و2) بحلول عام 2040. ويبني هذا الالتزام على عقود من المبادرات والشراكات البيئية عبر قطاع أشباه الموصلات.
             </p>
-            <!-- Learn More Button -->
-            <a href="#" class="mt-auto align-self-start">Learn More</a>
+            <!-- اعرف المزيد Button -->
+            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
           </div>
         </div>
 
         <!-- Column 3 -->
         <div class="col-12 col-md-4">
           <div class="info-card h-100 d-flex flex-column">
-            <h2><i class="bi bi-droplet" aria-hidden="true"></i>Water &amp; Waste</h2>
-            <p>
-              Intel conserves billions of gallons of water annually and
-              collaborates with local communities to restore watersheds.
-              Intel also upcycles and recycles materials to reduce waste and
-              advance a circular economy.
+            <h2><i class="bi bi-droplet" aria-hidden="true"></i><span data-i18n="col3Title">المياه والنفايات</span></h2>
+            <p data-i18n="col3Body">
+              تحافظ إنتل على مليارات الغالونات من المياه سنويًا وتتعاون مع المجتمعات المحلية لاستعادة مستجمعات المياه. كما تعيد إنتل تدوير المواد والاستفادة منها لتقليل النفايات وتعزيز الاقتصاد الدائري.
             </p>
-            <!-- Learn More Button -->
-            <a href="#" class="mt-auto align-self-start">Learn More</a>
+            <!-- اعرف المزيد Button -->
+            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
           </div>
         </div>
 
@@ -215,10 +245,9 @@
       <div class="row justify-content-center">
         <div class="col-12 col-lg-8">
 
-          <h2>Subscribe to our Newsletter</h2>
-          <p class="subscribe-intro">
-            Get Intel sustainability milestones and progress reports
-            delivered to your inbox.
+          <h2 data-i18n="formTitle">اشترك في نشرتنا الإخبارية</h2>
+          <p class="subscribe-intro" data-i18n="formIntro">
+            احصل على إنجازات إنتل في مجال الاستدامة وتقارير التقدم مباشرةً إلى بريدك الإلكتروني.
           </p>
 
           <!-- novalidate turns off the browser's own bubbles so Bootstrap
@@ -226,7 +255,7 @@
           <form class="row g-3 needs-validation" novalidate>
 
             <div class="col-12 col-sm-6">
-              <label for="subscriber-name" class="form-label">Name</label>
+              <label for="subscriber-name" class="form-label" data-i18n="labelName">الاسم</label>
               <input
                 type="text"
                 class="form-control"
@@ -235,11 +264,11 @@
                 autocomplete="name"
                 required
               />
-              <div class="invalid-feedback">Please enter your name.</div>
+              <div class="invalid-feedback" data-i18n="errName">يرجى إدخال اسمك.</div>
             </div>
 
             <div class="col-12 col-sm-6">
-              <label for="subscriber-email" class="form-label">Email address</label>
+              <label for="subscriber-email" class="form-label" data-i18n="labelEmail">البريد الإلكتروني</label>
               <input
                 type="email"
                 class="form-control"
@@ -248,7 +277,7 @@
                 autocomplete="email"
                 required
               />
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+              <div class="invalid-feedback" data-i18n="errEmail">يرجى إدخال بريد إلكتروني صالح.</div>
             </div>
 
             <div class="col-12">
@@ -260,23 +289,23 @@
                   name="consent"
                   required
                 />
-                <label class="form-check-label" for="subscriber-consent">
-                  Yes, send me sustainability updates from Intel.
+                <label class="form-check-label" for="subscriber-consent" data-i18n="consentLabel">
+                  نعم، أرسلوا لي تحديثات الاستدامة من إنتل.
                 </label>
-                <div class="invalid-feedback">
-                  Please confirm you would like to receive updates.
+                <div class="invalid-feedback" data-i18n="errConsent">
+                  يرجى تأكيد رغبتك في تلقي التحديثات.
                 </div>
               </div>
             </div>
 
             <div class="col-12">
-              <button type="submit" class="subscribe-button">Subscribe</button>
+              <button type="submit" class="subscribe-button" data-i18n="submitButton">اشترك</button>
             </div>
           </form>
 
           <!-- role="status" lets screen readers announce this when it appears -->
-          <p class="subscribe-success" role="status" hidden>
-            Thanks for subscribing! Please check your inbox to confirm.
+          <p class="subscribe-success" role="status" hidden data-i18n="successMessage">
+            شكرًا لاشتراكك! يرجى التحقق من بريدك الإلكتروني للتأكيد.
           </p>
 
         </div>
@@ -291,26 +320,8 @@
     crossorigin="anonymous"
   ></script>
 
-  <script>
-    // Bootstrap's validation pattern: block submit while anything is invalid,
-    // and add .was-validated so the styled messages appear.
-    const form = document.querySelector(".needs-validation");
-    const successMessage = document.querySelector(".subscribe-success");
 
-    form.addEventListener("submit", (event) => {
-      // Nothing is sent anywhere - this page is static, so always stop the submit
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (form.checkValidity()) {
-        form.reset();
-        form.classList.remove("was-validated");
-        successMessage.hidden = false;
-      } else {
-        form.classList.add("was-validated");
-        successMessage.hidden = true;
-      }
-    });
-  </script>
+  <!-- Language switching, RTL handling and form validation -->
+  <script src="script.js?v=20260917-2"></script>
 </body>
 </html>
