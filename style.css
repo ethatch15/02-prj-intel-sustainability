@@ -354,22 +354,14 @@ body > p {
 	}
 }
 
-/* The three-column section sits below the timeline */
+/* The three-column section sits below the timeline.
+   Bootstrap's grid handles the layout, so these rules only cover looks. */
 .columns {
-	padding: 10px 40px 90px;
+	padding-block: 10px 90px;
 }
 
-.columns > div {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 24px;
-	max-width: 1200px;
-	margin-inline: auto;
-}
-
-.columns > div > div {
-	display: flex;
-	flex-direction: column;
+/* Each card fills its Bootstrap column */
+.info-card {
 	padding: 30px 26px;
 	border: 1px solid rgba(155, 220, 244, 0.24);
 	border-radius: 12px;
@@ -390,10 +382,7 @@ body > p {
 	line-height: 1.65;
 }
 
-/* Push every button to the bottom so the three line up */
 .columns a {
-	margin-block-start: auto;
-	align-self: flex-start;
 	padding: 12px 26px;
 	border-radius: 999px;
 	background: var(--blue);
@@ -415,15 +404,8 @@ body > p {
 	outline-offset: 4px;
 }
 
-/* Stack the columns on a small screen */
 @media (max-width: 700px) {
 	.columns {
-		padding: 0 22px 60px;
-	}
-
-	.columns > div {
-		grid-template-columns: 1fr;
-		width: 88%;
-		margin-inline: auto;
+		padding-block: 0 60px;
 	}
 }
