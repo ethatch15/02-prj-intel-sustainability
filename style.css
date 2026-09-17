@@ -419,3 +419,83 @@ body > p {
 		padding-block: 0 60px;
 	}
 }
+
+/* Newsletter signup below the three columns */
+.subscribe {
+	padding-block: 10px 90px;
+}
+
+.subscribe h2 {
+	margin: 0 0 10px;
+	color: var(--white);
+	font-size: 1.8rem;
+	text-align: center;
+}
+
+.subscribe-intro {
+	margin: 0 auto 28px;
+	max-width: 46ch;
+	color: var(--soft-white);
+	line-height: 1.65;
+	text-align: center;
+}
+
+.subscribe .form-label {
+	color: var(--soft-white);
+	font-size: 0.9rem;
+}
+
+.subscribe .form-control {
+	padding: 12px 16px;
+	border: 1px solid rgba(155, 220, 244, 0.24);
+	background-color: rgba(8, 39, 65, 0.94);
+	color: var(--white);
+}
+
+.subscribe .form-control:focus {
+	border-color: var(--bright-blue);
+	box-shadow: 0 0 0 0.25rem rgba(0, 166, 224, 0.25);
+}
+
+.subscribe .form-check-label {
+	color: var(--soft-white);
+}
+
+/* Same pill shape as the Learn More buttons */
+.subscribe-button {
+	padding: 12px 34px;
+	border: none;
+	border-radius: 999px;
+	background: var(--blue);
+	color: var(--white);
+	font-size: 0.9rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.subscribe-button:hover {
+	background: var(--bright-blue);
+	transform: translateY(-2px);
+}
+
+.subscribe-button:focus-visible {
+	outline: 3px solid var(--green);
+	outline-offset: 4px;
+}
+
+.subscribe-success {
+	margin: 20px 0 0;
+	padding: 14px 20px;
+	border: 1px solid rgba(0, 166, 224, 0.4);
+	border-radius: 12px;
+	background-color: rgba(0, 166, 224, 0.12);
+	color: var(--white);
+	text-align: center;
+}
+
+@media (max-width: 700px) {
+	.subscribe {
+		padding-block: 0 60px;
+	}
+}

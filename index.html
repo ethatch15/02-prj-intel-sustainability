@@ -19,7 +19,7 @@
     integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="style.css?v=20260917-5" />
+  <link rel="stylesheet" href="style.css?v=20260917-6" />
 </head>
 <body>
 
@@ -208,11 +208,109 @@
     </div>
   </section>
 
+  <!-- Subscription Form -->
+  <!-- data-bs-theme="dark" makes Bootstrap style the inputs for a dark background -->
+  <section class="subscribe" data-bs-theme="dark">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+
+          <h2>Subscribe to our Newsletter</h2>
+          <p class="subscribe-intro">
+            Get Intel sustainability milestones and progress reports
+            delivered to your inbox.
+          </p>
+
+          <!-- novalidate turns off the browser's own bubbles so Bootstrap
+               can show its styled messages instead -->
+          <form class="row g-3 needs-validation" novalidate>
+
+            <div class="col-12 col-sm-6">
+              <label for="subscriber-name" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subscriber-name"
+                name="name"
+                autocomplete="name"
+                required
+              />
+              <div class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+              <label for="subscriber-email" class="form-label">Email address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="subscriber-email"
+                name="email"
+                autocomplete="email"
+                required
+              />
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="subscriber-consent"
+                  name="consent"
+                  required
+                />
+                <label class="form-check-label" for="subscriber-consent">
+                  Yes, send me sustainability updates from Intel.
+                </label>
+                <div class="invalid-feedback">
+                  Please confirm you would like to receive updates.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="subscribe-button">Subscribe</button>
+            </div>
+          </form>
+
+          <!-- role="status" lets screen readers announce this when it appears -->
+          <p class="subscribe-success" role="status" hidden>
+            Thanks for subscribing! Please check your inbox to confirm.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Bootstrap JavaScript: needed for interactive components like modals and dropdowns -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"
   ></script>
+
+  <script>
+    // Bootstrap's validation pattern: block submit while anything is invalid,
+    // and add .was-validated so the styled messages appear.
+    const form = document.querySelector(".needs-validation");
+    const successMessage = document.querySelector(".subscribe-success");
+
+    form.addEventListener("submit", (event) => {
+      // Nothing is sent anywhere - this page is static, so always stop the submit
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (form.checkValidity()) {
+        form.reset();
+        form.classList.remove("was-validated");
+        successMessage.hidden = false;
+      } else {
+        form.classList.add("was-validated");
+        successMessage.hidden = true;
+      }
+    });
+  </script>
 </body>
 </html>
