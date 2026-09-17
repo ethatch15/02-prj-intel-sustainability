@@ -20,7 +20,7 @@
     integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="style.css?v=20260917-12" />
+  <link rel="stylesheet" href="style.css?v=20260917-13" />
 
   <!-- Runs before the page paints, so the right language and direction are in
        place from the first frame instead of flashing the other one first. -->
@@ -426,6 +426,32 @@
     </div>
   </section>
 
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+
+        <div class="col-12 col-md-6">
+          <!-- The year is filled in by script.js so it never goes stale -->
+          <p class="footer-copyright" data-i18n="copyright">
+            © 2026 شركة إنتل. جميع الحقوق محفوظة.
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <nav aria-label="روابط التذييل" data-i18n-aria-label="footerNavLabel">
+            <ul class="footer-links list-unstyled d-flex flex-wrap gap-3 mb-0 justify-content-center justify-content-md-end">
+              <li><a href="#" data-i18n="privacyPolicy">سياسة الخصوصية</a></li>
+              <li><a href="#" data-i18n="termsOfUse">شروط الاستخدام</a></li>
+              <li><a href="#" data-i18n="contact">اتصل بنا</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
   <!-- Bootstrap JavaScript: needed for interactive components like modals and dropdowns -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -435,6 +461,6 @@
 
 
   <!-- Language switching, RTL handling and form validation -->
-  <script src="script.js?v=20260917-3"></script>
+  <script src="script.js?v=20260917-4"></script>
 </body>
 </html>

@@ -83,6 +83,11 @@ const TRANSLATIONS = {
       "تعيد إنتل إلى المجتمعات المحلية مياهًا عذبة أكثر مما تستهلك، عبر مشاريع لاستعادة مستجمعات المياه في الولايات المتحدة والهند وكوستاريكا والمكسيك. أما على صعيد النفايات، فتعيد الشركة تدوير الغالبية العظمى من نفاياتها التصنيعية، وتعيد استخدام المواد الكيميائية والمعادن بدل التخلص منها، دعمًا لاقتصاد دائري داخل قطاع أشباه الموصلات.",
     closeButton: "إغلاق",
     closeLabel: "إغلاق",
+    copyright: "© {year} شركة إنتل. جميع الحقوق محفوظة.",
+    footerNavLabel: "روابط التذييل",
+    privacyPolicy: "سياسة الخصوصية",
+    termsOfUse: "شروط الاستخدام",
+    contact: "اتصل بنا",
   },
   en: {
     logoAlt: "Intel Logo",
@@ -146,6 +151,11 @@ const TRANSLATIONS = {
       "Intel returns more fresh water to local communities than it consumes, through watershed restoration projects in the United States, India, Costa Rica and Mexico. On waste, the company recycles the large majority of its manufacturing waste and reuses chemicals and metals rather than disposing of them, supporting a circular economy within the semiconductor industry.",
     closeButton: "Close",
     closeLabel: "Close",
+    copyright: "© {year} Intel Corporation. All rights reserved.",
+    footerNavLabel: "Footer links",
+    privacyPolicy: "Privacy Policy",
+    termsOfUse: "Terms of Use",
+    contact: "Contact",
   },
 };
 
@@ -173,9 +183,11 @@ function applyLanguage(lang) {
   document.title = language.title;
   applyBootstrapDirection(language.dir);
 
+  const currentYear = String(new Date().getFullYear());
+
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const value = strings[el.dataset.i18n];
-    if (value !== undefined) el.textContent = value;
+    if (value !== undefined) el.textContent = value.replace("{year}", currentYear);
   });
 
   document.querySelectorAll("[data-i18n-alt]").forEach((el) => {

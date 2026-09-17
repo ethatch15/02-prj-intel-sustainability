@@ -569,3 +569,42 @@ body > p {
 	color: var(--soft-white);
 	line-height: 1.75;
 }
+
+/* Site footer */
+.site-footer {
+	padding-block: 34px;
+	border-block-start: 1px solid rgba(155, 220, 244, 0.18);
+	background-color: rgba(4, 18, 33, 0.9);
+}
+
+.footer-copyright {
+	margin: 0;
+	color: var(--soft-white);
+	font-size: 0.88rem;
+	text-align: center;
+}
+
+.footer-links a {
+	color: var(--soft-white);
+	font-size: 0.88rem;
+	text-decoration: none;
+	transition: color 200ms ease;
+}
+
+.footer-links a:hover {
+	color: var(--bright-blue);
+	text-decoration: underline;
+}
+
+.footer-links a:focus-visible {
+	outline: 3px solid var(--green);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* From the md breakpoint the two halves sit on one row, so push them apart */
+@media (min-width: 768px) {
+	.footer-copyright {
+		text-align: start;
+	}
+}
