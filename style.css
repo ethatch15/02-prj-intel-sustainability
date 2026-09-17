@@ -434,8 +434,11 @@ body > p {
 	line-height: 1.65;
 }
 
-.columns a {
+.learn-more {
+	border: none;
 	padding: 12px 26px;
+	font-family: inherit;
+	cursor: pointer;
 	border-radius: 999px;
 	background: var(--blue);
 	color: var(--white);
@@ -446,12 +449,12 @@ body > p {
 	transition: background-color 220ms ease, transform 220ms ease;
 }
 
-.columns a:hover {
+.learn-more:hover {
 	background: var(--bright-blue);
 	transform: translateY(-2px);
 }
 
-.columns a:focus-visible {
+.learn-more:focus-visible {
 	outline: 3px solid var(--green);
 	outline-offset: 4px;
 }
@@ -540,4 +543,29 @@ body > p {
 	.subscribe {
 		padding-block: 0 60px;
 	}
+}
+
+/* Modal styling to match the page's dark panels */
+.modal-content {
+	border: 1px solid rgba(155, 220, 244, 0.24);
+	border-radius: 14px;
+	background-color: rgba(8, 39, 65, 0.98);
+	color: var(--white);
+}
+
+.modal-header,
+.modal-footer {
+	border-color: rgba(155, 220, 244, 0.18);
+}
+
+.modal-title {
+	margin: 0;
+	color: var(--bright-blue);
+	font-weight: bold;
+}
+
+.modal-body p {
+	margin: 0;
+	color: var(--soft-white);
+	line-height: 1.75;
 }

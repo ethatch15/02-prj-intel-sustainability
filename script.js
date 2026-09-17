@@ -75,6 +75,14 @@ const TRANSLATIONS = {
     errConsent: "يرجى تأكيد رغبتك في تلقي التحديثات.",
     submitButton: "اشترك",
     successMessage: "شكرًا لاشتراكك! يرجى التحقق من بريدك الإلكتروني للتأكيد.",
+    modal1Body:
+      "تقوم استراتيجية RISE على أربع ركائز: المسؤولية والشمولية والاستدامة والتمكين. وضمن أهداف عام 2030، تسعى إنتل إلى الاعتماد على الكهرباء المتجددة بنسبة 100% عالميًا، وحفظ 60 مليار غالون من المياه، وتحقيق صفر نفايات إلى المكبّات. كما تعمل الشركة مع مورّديها وشركائها في القطاع لتوسيع أثر هذه الأهداف خارج عملياتها الخاصة.",
+    modal2Body:
+      "يغطي التزام الحياد الكربوني النطاقين الأول والثاني، أي الانبعاثات المباشرة من عمليات إنتل والانبعاثات غير المباشرة الناتجة عن الطاقة التي تشتريها. ولتحقيق ذلك بحلول عام 2040، تستثمر الشركة في المعدات الموفّرة للطاقة، ومعالجة الغازات الكيميائية، والمباني الحاصلة على شهادات بيئية، إلى جانب البحث عن مواد كيميائية بديلة أقل أثرًا على المناخ.",
+    modal3Body:
+      "تعيد إنتل إلى المجتمعات المحلية مياهًا عذبة أكثر مما تستهلك، عبر مشاريع لاستعادة مستجمعات المياه في الولايات المتحدة والهند وكوستاريكا والمكسيك. أما على صعيد النفايات، فتعيد الشركة تدوير الغالبية العظمى من نفاياتها التصنيعية، وتعيد استخدام المواد الكيميائية والمعادن بدل التخلص منها، دعمًا لاقتصاد دائري داخل قطاع أشباه الموصلات.",
+    closeButton: "إغلاق",
+    closeLabel: "إغلاق",
   },
   en: {
     logoAlt: "Intel Logo",
@@ -130,6 +138,14 @@ const TRANSLATIONS = {
     errConsent: "Please confirm you would like to receive updates.",
     submitButton: "Subscribe",
     successMessage: "Thanks for subscribing! Please check your inbox to confirm.",
+    modal1Body:
+      "The RISE strategy rests on four pillars: Responsible, Inclusive, Sustainable and Enabling. Its 2030 goals include reaching 100% renewable electricity worldwide, conserving 60 billion gallons of water, and sending zero waste to landfill. Intel also works with its suppliers and industry partners to extend the impact of these goals beyond its own operations.",
+    modal2Body:
+      "The net-zero commitment covers Scope 1 and Scope 2 - the direct emissions from Intel's operations and the indirect emissions from the energy it buys. To reach it by 2040, the company is investing in energy-efficient equipment, chemical abatement, green-certified buildings, and research into alternative chemicals with a lower climate impact.",
+    modal3Body:
+      "Intel returns more fresh water to local communities than it consumes, through watershed restoration projects in the United States, India, Costa Rica and Mexico. On waste, the company recycles the large majority of its manufacturing waste and reuses chemicals and metals rather than disposing of them, supporting a circular economy within the semiconductor industry.",
+    closeButton: "Close",
+    closeLabel: "Close",
   },
 };
 
@@ -165,6 +181,11 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
     const value = strings[el.dataset.i18nAlt];
     if (value !== undefined) el.alt = value;
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+    const value = strings[el.dataset.i18nAriaLabel];
+    if (value !== undefined) el.setAttribute("aria-label", value);
   });
 
   switchButtons.forEach((button) => {

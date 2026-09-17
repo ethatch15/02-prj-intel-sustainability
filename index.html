@@ -20,7 +20,7 @@
     integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
     crossorigin="anonymous"
   />
-  <link rel="stylesheet" href="style.css?v=20260917-11" />
+  <link rel="stylesheet" href="style.css?v=20260917-12" />
 
   <!-- Runs before the page paints, so the right language and direction are in
        place from the first frame instead of flashing the other one first. -->
@@ -205,8 +205,14 @@
             <p data-i18n="col1Body">
               ضمن استراتيجية RISE (المسؤولة والشاملة والمستدامة والمُمكِّنة)، تضع إنتل أهدافًا طموحة لعام 2030، تشمل دفع التقدم على مستوى القطاع في العمل المناخي وإدارة المياه وتقليل النفايات.
             </p>
-            <!-- اعرف المزيد Button -->
-            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
+            <!-- Learn More Button -->
+            <button
+              type="button"
+              class="learn-more mt-auto align-self-start"
+              data-bs-toggle="modal"
+              data-bs-target="#modal-rise"
+              data-i18n="learnMore"
+            >اعرف المزيد</button>
           </div>
         </div>
 
@@ -217,8 +223,14 @@
             <p data-i18n="col2Body">
               في عام 2022، تعهدت إنتل بتحقيق صافي انبعاثات صفري للغازات الدفيئة (النطاقان 1 و2) بحلول عام 2040. ويبني هذا الالتزام على عقود من المبادرات والشراكات البيئية عبر قطاع أشباه الموصلات.
             </p>
-            <!-- اعرف المزيد Button -->
-            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
+            <!-- Learn More Button -->
+            <button
+              type="button"
+              class="learn-more mt-auto align-self-start"
+              data-bs-toggle="modal"
+              data-bs-target="#modal-commitment"
+              data-i18n="learnMore"
+            >اعرف المزيد</button>
           </div>
         </div>
 
@@ -229,14 +241,115 @@
             <p data-i18n="col3Body">
               تحافظ إنتل على مليارات الغالونات من المياه سنويًا وتتعاون مع المجتمعات المحلية لاستعادة مستجمعات المياه. كما تعيد إنتل تدوير المواد والاستفادة منها لتقليل النفايات وتعزيز الاقتصاد الدائري.
             </p>
-            <!-- اعرف المزيد Button -->
-            <a href="#" class="mt-auto align-self-start" data-i18n="learnMore">اعرف المزيد</a>
+            <!-- Learn More Button -->
+            <button
+              type="button"
+              class="learn-more mt-auto align-self-start"
+              data-bs-toggle="modal"
+              data-bs-target="#modal-water"
+              data-i18n="learnMore"
+            >اعرف المزيد</button>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+
+  <!-- Modals opened by the Learn More buttons above -->
+  <div
+    class="modal fade"
+    id="modal-rise"
+    tabindex="-1"
+    aria-labelledby="modal-rise-title"
+    aria-hidden="true"
+    data-bs-theme="dark"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modal-rise-title" data-i18n="col1Title">استراتيجية RISE</h2>
+          <!-- data-bs-dismiss closes the modal without any JavaScript of our own -->
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="إغلاق"
+            data-i18n-aria-label="closeLabel"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p data-i18n="modal1Body">يتم تحميل التفاصيل.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="learn-more" data-bs-dismiss="modal" data-i18n="closeButton">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="modal-commitment"
+    tabindex="-1"
+    aria-labelledby="modal-commitment-title"
+    aria-hidden="true"
+    data-bs-theme="dark"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modal-commitment-title" data-i18n="col2Title">الالتزام</h2>
+          <!-- data-bs-dismiss closes the modal without any JavaScript of our own -->
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="إغلاق"
+            data-i18n-aria-label="closeLabel"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p data-i18n="modal2Body">يتم تحميل التفاصيل.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="learn-more" data-bs-dismiss="modal" data-i18n="closeButton">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="modal-water"
+    tabindex="-1"
+    aria-labelledby="modal-water-title"
+    aria-hidden="true"
+    data-bs-theme="dark"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modal-water-title" data-i18n="col3Title">المياه والنفايات</h2>
+          <!-- data-bs-dismiss closes the modal without any JavaScript of our own -->
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="إغلاق"
+            data-i18n-aria-label="closeLabel"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p data-i18n="modal3Body">يتم تحميل التفاصيل.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="learn-more" data-bs-dismiss="modal" data-i18n="closeButton">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Subscription Form -->
   <!-- data-bs-theme="dark" makes Bootstrap style the inputs for a dark background -->
@@ -322,6 +435,6 @@
 
 
   <!-- Language switching, RTL handling and form validation -->
-  <script src="script.js?v=20260917-2"></script>
+  <script src="script.js?v=20260917-3"></script>
 </body>
 </html>
