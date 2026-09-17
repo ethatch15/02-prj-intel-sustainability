@@ -608,3 +608,42 @@ body > p {
 		text-align: start;
 	}
 }
+
+
+/* Arabic artwork for the timeline cards, swapped by the document language */
+
+html[lang="ar"] .timeline > div:nth-child(1)::after {
+	background-image: url("img/1-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(2)::after {
+	background-image: url("img/2-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(3)::after {
+	background-image: url("img/3-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(4)::after {
+	background-image: url("img/4-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(5)::after {
+	background-image: url("img/5-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(6)::after {
+	background-image: url("img/6-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(7)::after {
+	background-image: url("img/7-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(8)::after {
+	background-image: url("img/8-ar.svg");
+}
+
+html[lang="ar"] .timeline > div:nth-child(9)::after {
+	background-image: url("img/9-ar.svg");
+}
