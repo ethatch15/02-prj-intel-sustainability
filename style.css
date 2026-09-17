@@ -370,10 +370,20 @@ body > p {
 }
 
 .columns h2 {
+	display: flex;
+	align-items: center;
+	gap: 12px;
 	margin: 0 0 14px;
 	color: var(--bright-blue);
 	font-size: 1.6rem;
 	line-height: 1.2;
+}
+
+/* Heading icons are decorative, so keep them from shrinking the text */
+.columns h2 .bi {
+	flex: none;
+	font-size: 1.5rem;
+	line-height: 1;
 }
 
 .columns p {
